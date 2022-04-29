@@ -1,10 +1,12 @@
 package com.banco.digital.conta;
 
+import com.banco.digital.cliente.Cliente;
+
 public class ContaPoupanca extends Conta{
 
 
-    public ContaPoupanca(){
-        super();
+    public ContaPoupanca(Cliente cliente){
+        super(cliente);
         setTipoConta(TipoConta.POUPANCA);
     }
 

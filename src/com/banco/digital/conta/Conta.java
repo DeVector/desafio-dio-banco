@@ -1,5 +1,7 @@
 package com.banco.digital.conta;
 
+import com.banco.digital.cliente.Cliente;
+
 public abstract class Conta implements IConta{
 
     protected static final byte AGENCIA_PADRAO = 1;
@@ -7,10 +9,11 @@ public abstract class Conta implements IConta{
 
     protected int agencia;
     protected int conta;
-    private double saldo;
-    private TipoConta tipoConta;
+    protected Cliente cliente;
+    protected TipoConta tipoConta;
+    protected double saldo;
 
-    public Conta(){
+    public Conta(Cliente cliente){
         this.agencia = AGENCIA_PADRAO;
         this.conta = SEQUENCIAL++;
     }

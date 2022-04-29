@@ -1,5 +1,7 @@
 package com.banco.digital.conta;
 
+import com.banco.digital.cliente.Cliente;
+
 public class ContaCorrente extends Conta{
 
     private static final double MENSALIDADE_CONTA = 14.73d;
@@ -7,8 +9,8 @@ public class ContaCorrente extends Conta{
 
     private double saldoAntigo = getSaldo();
 
-    public ContaCorrente(){
-        super();
+    public ContaCorrente(Cliente cliente){
+        super(cliente);
         setTipoConta(TipoConta.CORRENTE);
     }
 
