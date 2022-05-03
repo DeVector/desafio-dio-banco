@@ -16,6 +16,13 @@ public class ClienteRepository {
 
         List<Conta> contas = new ArrayList<>();
 
+        for (Cliente cliente1: clientes){
+            if (cliente1.getCpf() == cliente.getCpf()){
+                System.out.println("Cliente ja existente na base de dados");
+                break;
+            }
+        }
+
         clientes.add(cliente);
 
         switch (opcao){
@@ -71,6 +78,7 @@ public class ClienteRepository {
     public void excluir(long id){
         for (Cliente cliente:clientes){
             if (cliente.getId() == id){
+                System.out.println("Cliente " + cliente.getName() + " excluido com sucesso!!!");
                 clientes.remove(id);
                 break;
             }
