@@ -12,25 +12,18 @@ public class ClienteRepository {
 
     private List<Cliente> clientes = new ArrayList<>();
 
-    public void save(int opcao,Cliente cliente){
+    public void save(int opcao, Cliente cliente){
 
         List<Conta> contas = new ArrayList<>();
-
-        for (Cliente cliente1: clientes){
-            if (cliente1.getCpf() == cliente.getCpf()){
-                System.out.println("Cliente ja existente na base de dados");
-                break;
-            }
-        }
 
         clientes.add(cliente);
 
         switch (opcao){
-            case '1':
+            case 1:
                 Conta cc = new ContaCorrente(cliente);
                 contas.add(cc);
                 break;
-            case '2':
+            case 2:
                 Conta cp = new ContaPoupanca(cliente);
                 contas.add(cp);
                 break;
@@ -38,18 +31,6 @@ public class ClienteRepository {
                 System.out.println("Selecione uma opção valida: 1 ou 2.");
                 break;
         }
-    }
-
-    //Pesquisar por id do cliente
-    public Cliente findById(long id){
-        for (Cliente cliente: clientes) {
-            if (cliente.getId() == id){
-                System.out.println("Id: " + cliente.getId() + "\nNome: " + cliente.getName());
-                return cliente;
-            }
-            if (clientes.isEmpty()) System.out.println("Cliente não encontrado!!!");
-        }
-        return null;
     }
 
     //Pesquisar por cpf do cliente
@@ -69,13 +50,14 @@ public class ClienteRepository {
         if (!(clientes.isEmpty())){
             for (Cliente cliente: clientes){
                 System.out.println("Nome: " + cliente.getName() + "\nEmail: " + cliente.getEmail());
+                break;
             }
         }
         if (clientes.isEmpty()) System.out.println("Não existe clientes cadastrados ainda!!!!!");
         return null;
     }
 
-    public void excluir(long id){
+    public void delete(long id){
         for (Cliente cliente:clientes){
             if (cliente.getId() == id){
                 System.out.println("Cliente " + cliente.getName() + " excluido com sucesso!!!");

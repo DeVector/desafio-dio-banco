@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 public class ContaCorrente extends Conta{
 
     private static final double MENSALIDADE_CONTA = 14.72;
+    private static final double VALOR_TRANSFERENCIA = 7.90;
     private static int totalTransferencia = 0;
 
     public ContaCorrente(Cliente cliente) {
@@ -32,5 +33,13 @@ public class ContaCorrente extends Conta{
         System.out.println("Conta: " + getConta());
         System.out.println("Saldo: R$" + getSaldo());
         System.out.println("Sua conta foi criada " + getDtCriacao());
+    }
+
+    public static double getMensalidadeConta() {
+        return MENSALIDADE_CONTA;
+    }
+
+    public static double getValorTransferencia() {
+        return VALOR_TRANSFERENCIA;
     }
 }
